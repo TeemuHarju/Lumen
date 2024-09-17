@@ -1,0 +1,13 @@
+{
+    "C_Cpp.intelliSenseEngine": "disabled",  // Disable IntelliSense from C/C++ extension
+    "C_Cpp.autocomplete": "disabled",        // Disable autocomplete from C/C++ extension
+    "clangd.path": "C:/Program Files/LLVM/bin/clangd.exe",        // Set the path to your clangd installation
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd", // Set clangd as default formatter
+    "editor.formatOnSave": true,
+    "files.associations": {
+        "*.html": "html",
+        "*.tmpl": "html",
+        "defines.h": "c",
+        "stdio.h": "c"
+    } // Optional: Enable auto-formatting on save
+}
