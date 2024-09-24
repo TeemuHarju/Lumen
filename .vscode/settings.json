@@ -1,12 +1,11 @@
 {
-    "C_Cpp.intelliSenseEngine": "disabled",  // Disable IntelliSense from C/C++ extension
-    "C_Cpp.autocomplete": "disabled",        // Disable autocomplete from C/C++ extension
+    //"C_Cpp.intelliSenseEngine": "disabled",  // Disable IntelliSense from C/C++ extension
+    //"C_Cpp.autocomplete": "disabled",        // Disable autocomplete from C/C++ extension
     "clangd.path": "C:/Program Files/LLVM/bin/clangd.exe",        // Set the path to your clangd installation
     //"editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd", // Set clangd as default formatter
     "editor.formatOnSave": true,
     "xmlTools.enforcePrettySelfClosingTagOnFormat": true,
     "editor.minimap.enabled": false,
-    "workbench.activityBar.visible": true,
     "workbench.statusBar.visible": true,
     "editor.lineNumbers": "on",
     "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0, NamespaceIndentation: All}",

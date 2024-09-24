@@ -1,13 +1,12 @@
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION 3.30)
 project(GameEngineProject)
 
 # Set common compiler options
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_C_STANDARD 17)
 
-# Create options for debug and release
-set(CMAKE_C_FLAGS_DEBUG "-D_DEBUG -g")
-set(CMAKE_C_FLAGS_RELEASE "-O3")
+# set output directories
+set (CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # Include the engine and testbed directories
 add_subdirectory(engine)
