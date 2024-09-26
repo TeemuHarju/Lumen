@@ -22,7 +22,7 @@
             "program": "${workspaceFolder}/build/testbed",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/bin/",
+            "cwd": "${workspaceFolder}/build/testbed/",
             "environment": [],
         }
     ]
