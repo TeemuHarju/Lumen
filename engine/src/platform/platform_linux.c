@@ -1,5 +1,3 @@
-#include <xcb/xproto.h>
-#include "defines.h"
 #include "platform/platform.h"
 
 // Linux platform layer.
