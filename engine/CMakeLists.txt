@@ -11,6 +11,8 @@ target_sources(engine
 	src/core/logger.c
 	src/core/logger.h
 	src/core/asserts.h
+	src/platform/platform.h
+	src/platform/platform_win32.c
 )
 
 # Include Vulkan headers
