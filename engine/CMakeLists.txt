@@ -26,6 +26,10 @@ target_sources(engine
 	src/core/application.c
 	src/core/kmemory.h
 	src/core/kmemory.c
+	src/core/event.c
+	src/core/event.h
+	src/containers/darray.c
+	src/containers/darray.h
 	src/entry.h
 	src/game_types.h
 	${PLATFORM_SOURCES} # Include platform-specific sources
