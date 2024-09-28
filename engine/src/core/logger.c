@@ -41,8 +41,9 @@ void log_output( log_level level, const char* message, ... )
 	vsnprintf( out_message, 32000, message, arg_ptr );
 	va_end( arg_ptr );
 
-	sprintf( out_message, "%s%s\n", level_strings[ level ], out_message );
+	char out_message2[ 32000 ];
+	sprintf( out_message2, "%s%s\n", level_strings[ level ], out_message );
 
 	// TODO: Platform specific logging.
-	printf( "%s", out_message );
+	printf( "%s", out_message2 );
 }

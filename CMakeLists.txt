@@ -8,6 +8,9 @@ set(CMAKE_C_STANDARD 17)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 
+# Set the compile commands to be exported.
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 # Include the engine and testbed directories
 add_subdirectory(engine)
 add_subdirectory(testbed)
