@@ -28,6 +28,8 @@ target_sources(engine
 	src/core/kmemory.c
 	src/core/event.c
 	src/core/event.h
+	src/core/input.c
+	src/core/input.h
 	src/containers/darray.c
 	src/containers/darray.h
 	src/entry.h
