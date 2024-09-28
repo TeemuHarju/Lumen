@@ -10,5 +10,7 @@ target_link_libraries(testbed PRIVATE engine)
 # Add sources to the executable
 target_sources(testbed
 	PRIVATE
-		src/main.c
+	src/entry.c
+	src/game.c
+	src/game.h
 )
