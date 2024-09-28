@@ -2,7 +2,8 @@
 
 #include "defines.h"
 
-typedef struct platform_state {
+typedef struct platform_state
+{
 	void* internal_state;
 } platform_state;
 
@@ -21,7 +22,7 @@ typedef struct platform_state {
  * 
  * @return Returns a platform startup result code.
  */
-KAPI b8 platform_startup( platform_state* plat_state, const char* application_name, i32 x, i32 y, i32 width, i32 height );
+b8 platform_startup( platform_state* plat_state, const char* application_name, i32 x, i32 y, i32 width, i32 height );
 
 /**
  * @brief Shuts down the platform layer.
@@ -31,7 +32,7 @@ KAPI b8 platform_startup( platform_state* plat_state, const char* application_na
  * 
  * @param plat_state A pointer to the platform state structure to shut down.
  */
-KAPI void platform_shutdown( platform_state* plat_state );
+void platform_shutdown( platform_state* plat_state );
 
 /**
  * @brief Processes messages for the platform.
@@ -43,10 +44,10 @@ KAPI void platform_shutdown( platform_state* plat_state );
  * 
  * @return Returns a platform pump messages result code.
  */
-KAPI b8 platform_pump_messages( platform_state* plat_state );
+b8 platform_pump_messages( platform_state* plat_state );
 
-void* plarform_allocate( u64 size, b8 aligned );
-void platform_free( void* block, b8 aligned );
+KAPI void* plarform_allocate( u64 size, b8 aligned );
+KAPI void platform_free( void* block, b8 aligned );
 void* platform_zero_memory( void* block, u64 size );
 void* platform_copy_memory( void* dest, const void* source, u64 size );
 void* platform_set_memory( void* dest, i32 value, u64 size );

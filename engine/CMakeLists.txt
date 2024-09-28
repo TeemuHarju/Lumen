@@ -22,6 +22,10 @@ target_sources(engine
 	src/core/logger.c
 	src/core/logger.h
 	src/core/asserts.h
+	src/core/application.h
+	src/core/application.c
+	src/entry.h
+	src/game_types.h
 	${PLATFORM_SOURCES} # Include platform-specific sources
 )
 
