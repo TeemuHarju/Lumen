@@ -5,17 +5,18 @@ add_library(engine SHARED)
 find_package(Vulkan REQUIRED)
 
 # Add sources to the library
-target_sources(engine 
+target_sources(engine
 	PRIVATE
-		src/test.c
-		src/test.h
-		src/defines.h
+	src/defines.h
+	src/core/logger.c
+	src/core/logger.h
+	src/core/asserts.h
 )
 
 # Include Vulkan headers
-target_include_directories(engine 
+target_include_directories(engine
 	PRIVATE
-		${Vulkan_INCLUDE_DIRS}
+	${Vulkan_INCLUDE_DIRS}
 	PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/src>
 )
 

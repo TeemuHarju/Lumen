@@ -1,7 +1,7 @@
 {
 	"C_Cpp.intelliSenseEngine": "disabled",  // Disable IntelliSense from C/C++ extension
 	"C_Cpp.autocomplete": "disabled",        // Disable autocomplete from C/C++ extension
-	"clangd.path": "C:/Program Files/LLVM/bin/clangd.exe", 
+	"clangd.path": "C:/Program Files/LLVM/bin/clangd.exe",
 	"editor.formatOnSave": true,
 	"todohighlight.isEnable": true,
 	"todohighlight.keywords": [
