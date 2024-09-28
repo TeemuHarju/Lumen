@@ -16,7 +16,7 @@ int main( void )
 
 	platform_state state;
 
-	if( platform_startup( &state, "Lumen Engine Testbed", 100, 100, 2180, 720 ) )
+	if( platform_startup( &state, "Lumen Engine Testbed", 100, 100, 1280, 720 ) )
 	{
 		while( TRUE )
 		{
