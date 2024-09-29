@@ -194,7 +194,9 @@ b8 platform_pump_messages( platform_state* plat_state )
 					( KeyCode )code,  //event.xkey.keycode,
 					0,
 					code & ShiftMask ? 1 : 0 );
+
 			keys key = translate_keycode( key_sym );
+
 			// Pass to the input subsystem for processing.
 			input_process_key( key, pressed );
 			break;
@@ -217,6 +219,7 @@ b8 platform_pump_messages( platform_state* plat_state )
 				mouse_button = BUTTON_RIGHT;
 				break;
 			}
+
 			// Pass over to the input subsystem.
 			if( mouse_button != BUTTON_MAX_BUTTONS )
 			{
@@ -228,6 +231,7 @@ b8 platform_pump_messages( platform_state* plat_state )
 		{
 			// Mouse move
 			xcb_motion_notify_event_t* move_event = ( xcb_motion_notify_event_t* )event;
+
 			// Pass over to the input subsystem.
 			input_process_mouse_move( move_event->event_x, move_event->event_y );
 		}
@@ -330,18 +334,22 @@ keys translate_keycode( u32 x_keycode )
 		return KEY_TAB;
 		//case XK_Shift: return KEY_SHIFT;
 		//case XK_Control: return KEY_CONTROL;
+
 	case XK_Pause:
 		return KEY_PAUSE;
 	case XK_Caps_Lock:
 		return KEY_CAPITAL;
 	case XK_Escape:
 		return KEY_ESCAPE;
+
 		// Not supported
 		// case : return KEY_CONVERT;
 		// case : return KEY_NONCONVERT;
 		// case : return KEY_ACCEPT;
+
 	case XK_Mode_switch:
 		return KEY_MODECHANGE;
+
 	case XK_space:
 		return KEY_SPACE;
 	case XK_Prior:
@@ -373,12 +381,15 @@ keys translate_keycode( u32 x_keycode )
 		return KEY_DELETE;
 	case XK_Help:
 		return KEY_HELP;
+
 	case XK_Meta_L:
 		return KEY_LWIN;  // TODO: not sure this is right
 	case XK_Meta_R:
 		return KEY_RWIN;
 		// case XK_apps: return KEY_APPS; // not supported
+
 		// case XK_sleep: return KEY_SLEEP; //not supported
+
 	case XK_KP_0:
 	case XK_0:
 		return KEY_NUMPAD0;
@@ -469,10 +480,12 @@ keys translate_keycode( u32 x_keycode )
 		return KEY_F23;
 	case XK_F24:
 		return KEY_F24;
+
 	case XK_Num_Lock:
 		return KEY_NUMLOCK;
 	case XK_Scroll_Lock:
 		return KEY_SCROLL;
+
 	case XK_KP_Equal:
 		return KEY_NUMPAD_EQUAL;
 	case XK_Shift_L:
@@ -486,6 +499,7 @@ keys translate_keycode( u32 x_keycode )
 	// case XK_Menu: return KEY_LMENU;
 	case XK_Menu:
 		return KEY_RMENU;
+
 	case XK_semicolon:
 		return KEY_SEMICOLON;
 	case XK_plus:
@@ -500,6 +514,7 @@ keys translate_keycode( u32 x_keycode )
 		return KEY_SLASH;
 	case XK_grave:
 		return KEY_GRAVE;
+
 	case XK_a:
 	case XK_A:
 		return KEY_A;
@@ -578,6 +593,7 @@ keys translate_keycode( u32 x_keycode )
 	case XK_z:
 	case XK_Z:
 		return KEY_Z;
+
 	default:
 		return 0;
 	}
