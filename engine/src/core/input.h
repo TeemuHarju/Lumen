@@ -7,7 +7,7 @@ typedef enum buttons
 	BUTTON_LEFT,
 	BUTTON_RIGHT,
 	BUTTON_MIDDLE,
-	BUTTOM_MAX_BUTTONS
+	BUTTON_MAX_BUTTONS
 } buttons;
 
 #define DEFINE_KEY( name, code ) KEY_##name = code
