@@ -30,6 +30,8 @@ target_sources(engine
 	src/core/event.h
 	src/core/input.c
 	src/core/input.h
+	src/core/kstring.c
+	src/core/kstring.h
 	src/containers/darray.c
 	src/containers/darray.h
 	src/entry.h
