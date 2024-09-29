@@ -2,7 +2,6 @@
 #include "core/event.h"
 #include "core/kmemory.h"
 #include "core/logger.h"
-#include "defines.h"
 
 typedef struct keyboard_state
 {
@@ -48,14 +47,14 @@ void input_update( f64 delta_time )
 		return;
 	}
 
-	// Copy current state to previous state.
+	// Copy current states to previous states.
 	kcopy_memory( &state.keyboard_previous, &state.keyboard_current, sizeof( keyboard_state ) );
 	kcopy_memory( &state.mouse_previous, &state.mouse_current, sizeof( mouse_state ) );
 }
 
 void input_process_key( keys key, b8 pressed )
 {
-	// Only handle this if the state is actually changed.
+	// Only handle this if the state actually changed.
 	if( state.keyboard_current.keys[ key ] != pressed )
 	{
 		// Update internal state.
@@ -64,7 +63,7 @@ void input_process_key( keys key, b8 pressed )
 		// Fire off an event for immediate processing.
 		event_context context;
 		context.data.u16[ 0 ] = key;
-		event_fire( pressed ? EVENT_CODE_BUTTON_PRESSED : EVENT_CODE_BUTTON_RELEASED, 0, context );
+		event_fire( pressed ? EVENT_CODE_KEY_PRESSED : EVENT_CODE_KEY_RELEASED, 0, context );
 	}
 }
 
@@ -74,6 +73,7 @@ void input_process_button( buttons button, b8 pressed )
 	if( state.mouse_current.buttons[ button ] != pressed )
 	{
 		state.mouse_current.buttons[ button ] = pressed;
+
 		// Fire the event.
 		event_context context;
 		context.data.u16[ 0 ] = button;
@@ -87,13 +87,13 @@ void input_process_mouse_move( i16 x, i16 y )
 	if( state.mouse_current.x != x || state.mouse_current.y != y )
 	{
 		// NOTE: Enable this if debugging.
-		KDEBUG( "Mouse pos: %i, %i!", x, y );
+		// KDEBUG("Mouse pos: %i, %i!", x, y);
 
 		// Update internal state.
 		state.mouse_current.x = x;
 		state.mouse_current.y = y;
 
-		// Fire off an event.
+		// Fire the event.
 		event_context context;
 		context.data.u16[ 0 ] = x;
 		context.data.u16[ 1 ] = y;
@@ -105,7 +105,7 @@ void input_process_mouse_wheel( i8 z_delta )
 {
 	// NOTE: no internal state to update.
 
-	// Fire off an event.
+	// Fire the event.
 	event_context context;
 	context.data.u8[ 0 ] = z_delta;
 	event_fire( EVENT_CODE_MOUSE_WHEEL, 0, context );

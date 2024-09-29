@@ -144,27 +144,8 @@ typedef enum keys
 	KEYS_MAX_KEYS
 } keys;
 
-/**
- * @brief Initializes the input system.
- * 
- * This function sets up the necessary resources and state for the input system to function.
- */
 void input_initialize();
-
-/**
- * @brief Shuts down the input system.
- * 
- * This function releases any resources allocated by the input system and performs necessary cleanup.
- */
 void input_shutdown();
-
-/**
- * @brief Updates the input system.
- * 
- * This function processes input events and updates the input state.
- * 
- * @param delta_time The time elapsed since the last update, in seconds.
- */
 void input_update( f64 delta_time );
 
 // keyboard input
