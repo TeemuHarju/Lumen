@@ -1,4 +1,3 @@
-#include <xcb/xproto.h>
 #include "platform/platform.h"
 
 // Linux platform layer.
@@ -7,6 +6,8 @@
 #include "core/logger.h"
 #include "core/event.h"
 #include "core/input.h"
+
+#include "containers/darray.h"
 
 #include <xcb/xcb.h>
 #include <X11/keysym.h>
@@ -113,7 +114,7 @@ b8 platform_startup( platform_state* plat_state, const char* application_name, i
 			state->window,
 			XCB_ATOM_WM_NAME,
 			XCB_ATOM_STRING,
-			8,  // Data should be viewd 8 bits at a time.
+			8,  // Data should be viewed 8 bits at a time.
 			strlen( application_name ),
 			application_name );
 
@@ -142,7 +143,7 @@ b8 platform_startup( platform_state* plat_state, const char* application_name, i
 	i32 stream_result = xcb_flush( state->connection );
 	if( stream_result <= 0 )
 	{
-		KFATAL( "An error occurred when flusing the stream: %d", stream_result );
+		KFATAL( "An error occurred when flushing the stream: %d", stream_result );
 		return FALSE;
 	}
 
@@ -319,6 +320,11 @@ void platform_sleep( u64 ms )
 	}
 	usleep( ( ms % 1000 ) * 1000 );
 #endif
+}
+
+void platform_get_required_extension_names( const char*** names_darray )
+{
+	darray_push( *names_darray, &"VK_KHR_xcb_surface" );  // VK_KHR_xlib_surface?
 }
 
 // Key translation

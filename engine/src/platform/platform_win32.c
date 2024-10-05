@@ -6,6 +6,8 @@
 #include "core/logger.h"
 #include "core/input.h"
 
+#include "containers/darray.h"
+
 #include <windows.h>
 #include <windowsx.h>
 #include <stdlib.h>
@@ -40,7 +42,7 @@ b8 platform_startup( platform_state* plat_state, const char* application_name, i
 	wc.hInstance = state->h_instance;
 	wc.hIcon = icon;
 	wc.hCursor = LoadCursor( NULL, IDC_ARROW );  // NULL; Manage the cursor manually.
-	wc.hbrBackground = NULL;  // Trasnparent.
+	wc.hbrBackground = NULL;  // Transparent.
 	wc.lpszClassName = "lumen_window_class";
 
 	if( ! RegisterClassA( &wc ) )
@@ -193,6 +195,11 @@ f64 platform_get_absolute_time()
 void platform_sleep( u64 milliseconds )
 {
 	Sleep( milliseconds );
+}
+
+void platform_get_required_extension_names( const char*** names_darray )
+{
+	darray_push( *names_darray, &"VK_KHR_win32_surface" );
 }
 
 LRESULT CALLBACK win32_process_messages( HWND hwnd, u32 msg, WPARAM w_param, LPARAM l_param )
