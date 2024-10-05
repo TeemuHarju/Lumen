@@ -32,10 +32,24 @@ target_sources(engine
 	src/core/input.h
 	src/core/kstring.c
 	src/core/kstring.h
+	src/core/clock.c
+	src/core/clock.h
 	src/containers/darray.c
 	src/containers/darray.h
 	src/entry.h
 	src/game_types.h
+
+	# Renderer basic
+	src/renderer/renderer_backend.c
+	src/renderer/renderer_backend.h
+	src/renderer/renderer_frontend.c
+	src/renderer/renderer_frontend.h
+	src/renderer/renderer_types.inl
+
+	# Renderer Vulkan
+	src/renderer/vulkan/vulkan_backend.c
+	src/renderer/vulkan/vulkan_backend.h
+	src/renderer/vulkan/vulkan_types.inl
 	${PLATFORM_SOURCES} # Include platform-specific sources
 )
 
