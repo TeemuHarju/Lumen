@@ -50,6 +50,8 @@ target_sources(engine
 	src/renderer/vulkan/vulkan_backend.c
 	src/renderer/vulkan/vulkan_backend.h
 	src/renderer/vulkan/vulkan_types.inl
+	src/renderer/vulkan/vulkan_device.h
+	src/renderer/vulkan/vulkan_device.c
 	${PLATFORM_SOURCES} # Include platform-specific sources
 )
 
